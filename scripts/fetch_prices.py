@@ -14,7 +14,7 @@ import time
 from datetime import datetime, timedelta, timezone
 
 PRICES_FILE = 'dynamic_prices.json'
-API_URL = 'https://api.energyzero.nl/v1/energyprices'
+API_URL = 'https://api.energyzero.nl/v1/BROKEN_FOR_TEST'
 MAX_RETRIES = 5
 RETRY_DELAY = 300  # 5 minuten tussen pogingen
 

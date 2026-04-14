@@ -52,7 +52,7 @@ jobs:
               data = json.load(f)
           tomorrow = (datetime.datetime.utcnow() + datetime.timedelta(days=1)).strftime('%Y-%m-%d')
           count = sum(1 for p in data.get('electricity', []) if p['time'].startswith(tomorrow))
-          if count >= 20:
+          if count >= 20 and False:  # TEST: skip uitgeschakeld
               print(f"Prijzen voor morgen al aanwezig ({count} punten). Stap over.")
               with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
                   fh.write("skip=true\n")
