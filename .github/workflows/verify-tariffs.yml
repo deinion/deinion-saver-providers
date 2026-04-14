@@ -1,0 +1,33 @@
+name: Verify Provider Tariffs
+
+on:
+  schedule:
+    # Elke dag om 06:00 UTC
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    # Handmatig uitvoeren via GitHub UI
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4 lxml
+
+      - name: Check tariff freshness
+        run: python scripts/check_freshness.py
+
+      - name: Commit updated last_updated timestamp
+        run: |
+          git config user.name "Deinion Saver Bot"
+          git config user.email "deinion.saver@gmail.com"
+          git diff --quiet || (git add providers.json && git commit -m "chore: update last_updated timestamp [$(date +%Y-%m-%d)]")
+          git push

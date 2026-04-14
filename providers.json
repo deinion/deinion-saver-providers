@@ -1,0 +1,761 @@
+{
+    "_meta": {
+        "last_updated": "2026-04-14",
+        "description": "Deinion Saver provider tariffs. return_cost = Vverkoop per kWh (afslag op spotprijs bij teruglevering). Maintained via GitHub Actions.",
+        "saldering_end": "2027-01-01"
+    },
+    "365_ENERGIE_STROOM": {
+        "name": "365 Energie",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.14285,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "365_ENERGIE_COMBO": {
+        "name": "365 Energie",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.14085,
+        "surcharge_gas": 0.80591,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "ALL_IN_POWER_STROOM": {
+        "name": "All in power",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.13885,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "ALL_IN_POWER_COMBO": {
+        "name": "All in power",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.13685,
+        "surcharge_gas": 0.79791,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "ANWB_STROOM": {
+        "name": "ANWB Energie",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.13085,
+        "surcharge_gas": 0.0,
+        "interval": "quarter",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "ANWB_GAS": {
+        "name": "ANWB Energie",
+        "type": "DYNAMIC",
+        "offer_type": "GAS_ONLY",
+        "surcharge_elec": 0.0,
+        "surcharge_gas": 0.78591,
+        "interval": "quarter",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "ANWB_COMBO": {
+        "name": "ANWB Energie",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.13085,
+        "surcharge_gas": 0.78591,
+        "interval": "quarter",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "ATOOM_ALLIANTIE_STROOM": {
+        "name": "Atoom Alliantie",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.13485,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "ATOOM_ALLIANTIE_COMBO": {
+        "name": "Atoom Alliantie",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.13285,
+        "surcharge_gas": 0.79191,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "BUDGET_ENERGIE_STROOM": {
+        "name": "Budget Energie",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.12985,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "BUDGET_ENERGIE_GAS": {
+        "name": "Budget Energie",
+        "type": "DYNAMIC",
+        "offer_type": "GAS_ONLY",
+        "surcharge_elec": 0.0,
+        "surcharge_gas": 0.77991,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "BUDGET_ENERGIE_COMBO": {
+        "name": "Budget Energie",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.12785,
+        "surcharge_gas": 0.77791,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "COOLBLUE_STROOM": {
+        "name": "Coolblue Energie",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.13385,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "COOLBLUE_COMBO": {
+        "name": "Coolblue Energie",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.13185,
+        "surcharge_gas": 0.78991,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "DYNAMIC_STROOM": {
+        "name": "Dynamic",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.13785,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "DYNAMIC_COMBO": {
+        "name": "Dynamic",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.13585,
+        "surcharge_gas": 0.79991,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "EASYENERGY_STROOM": {
+        "name": "easyEnergy",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.12485,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "EASYENERGY_GAS": {
+        "name": "easyEnergy",
+        "type": "DYNAMIC",
+        "offer_type": "GAS_ONLY",
+        "surcharge_elec": 0.0,
+        "surcharge_gas": 0.76991,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "EASYENERGY_COMBO": {
+        "name": "easyEnergy",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.12285,
+        "surcharge_gas": 0.76791,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "ENECO_STROOM": {
+        "name": "Eneco",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.14785,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "ENECO_GAS": {
+        "name": "Eneco",
+        "type": "DYNAMIC",
+        "offer_type": "GAS_ONLY",
+        "surcharge_elec": 0.0,
+        "surcharge_gas": 0.81991,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "ENECO_COMBO": {
+        "name": "Eneco",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.14585,
+        "surcharge_gas": 0.81791,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "ENERGYZERO_STROOM": {
+        "name": "EnergyZero",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.14473,
+        "surcharge_gas": 0.0,
+        "interval": "quarter",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "ENERGYZERO_GAS": {
+        "name": "EnergyZero",
+        "type": "DYNAMIC",
+        "offer_type": "GAS_ONLY",
+        "surcharge_elec": 0.0,
+        "surcharge_gas": 0.81515,
+        "interval": "quarter",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "ENERGYZERO_COMBO": {
+        "name": "EnergyZero",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.14273,
+        "surcharge_gas": 0.81315,
+        "interval": "quarter",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "ESSENT_STROOM": {
+        "name": "Essent",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.14785,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "ESSENT_GAS": {
+        "name": "Essent",
+        "type": "DYNAMIC",
+        "offer_type": "GAS_ONLY",
+        "surcharge_elec": 0.0,
+        "surcharge_gas": 0.81991,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "ESSENT_COMBO": {
+        "name": "Essent",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.14585,
+        "surcharge_gas": 0.81791,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "FRANK_ENERGIE_STROOM": {
+        "name": "Frank Energie",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.13585,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "FRANK_ENERGIE_COMBO": {
+        "name": "Frank Energie",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.13385,
+        "surcharge_gas": 0.79591,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "FREEDOM_ENERGY_STROOM": {
+        "name": "Freedom Energy",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.13685,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "FREEDOM_ENERGY_COMBO": {
+        "name": "Freedom Energy",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.13485,
+        "surcharge_gas": 0.79691,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "GEWOON_ENERGIE_STROOM": {
+        "name": "Gewoon Energie",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.13985,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "GEWOON_ENERGIE_COMBO": {
+        "name": "Gewoon Energie",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.13785,
+        "surcharge_gas": 0.80191,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "GROENESTROOM_LOKAAL_STROOM": {
+        "name": "Groenestroom Lokaal",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.14185,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "GROENESTROOM_LOKAAL_COMBO": {
+        "name": "Groenestroom Lokaal",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.13985,
+        "surcharge_gas": 0.80391,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "HEGG_ENERGY_STROOM": {
+        "name": "Hegg Energy",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.13885,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "HEGG_ENERGY_COMBO": {
+        "name": "Hegg Energy",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.13685,
+        "surcharge_gas": 0.80091,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "INNOVA_ENERGIE_STROOM": {
+        "name": "Innova Energie",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.14085,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "INNOVA_ENERGIE_GAS": {
+        "name": "Innova Energie",
+        "type": "DYNAMIC",
+        "offer_type": "GAS_ONLY",
+        "surcharge_elec": 0.0,
+        "surcharge_gas": 0.80591,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "INNOVA_ENERGIE_COMBO": {
+        "name": "Innova Energie",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.13885,
+        "surcharge_gas": 0.80391,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "LIVEENERGY_STROOM": {
+        "name": "LiveEnergy",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.13785,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "LIVEENERGY_GAS": {
+        "name": "LiveEnergy",
+        "type": "DYNAMIC",
+        "offer_type": "GAS_ONLY",
+        "surcharge_elec": 0.0,
+        "surcharge_gas": 0.79991,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "LIVEENERGY_COMBO": {
+        "name": "LiveEnergy",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.13585,
+        "surcharge_gas": 0.79791,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "MIJNDOMEIN_ENERGIE_STROOM": {
+        "name": "Mijndomein Energie",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.14085,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "MIJNDOMEIN_ENERGIE_COMBO": {
+        "name": "Mijndomein Energie",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.13885,
+        "surcharge_gas": 0.80591,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "NEXTENERGY_STROOM": {
+        "name": "NextEnergy",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.13885,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "NEXTENERGY_GAS": {
+        "name": "NextEnergy",
+        "type": "DYNAMIC",
+        "offer_type": "GAS_ONLY",
+        "surcharge_elec": 0.0,
+        "surcharge_gas": 0.80091,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "NEXTENERGY_COMBO": {
+        "name": "NextEnergy",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.13685,
+        "surcharge_gas": 0.79891,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "OXXIO_STROOM": {
+        "name": "Oxxio",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.14385,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "OXXIO_GAS": {
+        "name": "Oxxio",
+        "type": "DYNAMIC",
+        "offer_type": "GAS_ONLY",
+        "surcharge_elec": 0.0,
+        "surcharge_gas": 0.80991,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "OXXIO_COMBO": {
+        "name": "Oxxio",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.14185,
+        "surcharge_gas": 0.80791,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "PURE_ENERGIE_STROOM": {
+        "name": "Pure Energie",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.14185,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "PURE_ENERGIE_COMBO": {
+        "name": "Pure Energie",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.13985,
+        "surcharge_gas": 0.80691,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "SAMSAM_STROOM": {
+        "name": "SamSam",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.13985,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "SAMSAM_COMBO": {
+        "name": "SamSam",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.13785,
+        "surcharge_gas": 0.80391,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "SERVICEHOUSE_STROOM": {
+        "name": "ServiceHouse",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.14285,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "SERVICEHOUSE_GAS": {
+        "name": "ServiceHouse",
+        "type": "DYNAMIC",
+        "offer_type": "GAS_ONLY",
+        "surcharge_elec": 0.0,
+        "surcharge_gas": 0.80891,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "SERVICEHOUSE_COMBO": {
+        "name": "ServiceHouse",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.14085,
+        "surcharge_gas": 0.80691,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "TIBBER_STROOM": {
+        "name": "Tibber",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.132,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "TIBBER_COMBO": {
+        "name": "Tibber",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.13,
+        "surcharge_gas": 0.78891,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "UNITEDCONSUMERS_STROOM": {
+        "name": "UnitedConsumers",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.13285,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "UNITEDCONSUMERS_GAS": {
+        "name": "UnitedConsumers",
+        "type": "DYNAMIC",
+        "offer_type": "GAS_ONLY",
+        "surcharge_elec": 0.0,
+        "surcharge_gas": 0.79191,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "UNITEDCONSUMERS_COMBO": {
+        "name": "UnitedConsumers",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.13085,
+        "surcharge_gas": 0.78991,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "VANDEBRON_STROOM": {
+        "name": "Vandebron",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.14485,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "VANDEBRON_COMBO": {
+        "name": "Vandebron",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.14285,
+        "surcharge_gas": 0.81091,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "VATTENFALL_STROOM": {
+        "name": "Vattenfall",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.14585,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "VATTENFALL_GAS": {
+        "name": "Vattenfall",
+        "type": "DYNAMIC",
+        "offer_type": "GAS_ONLY",
+        "surcharge_elec": 0.0,
+        "surcharge_gas": 0.81591,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "VATTENFALL_COMBO": {
+        "name": "Vattenfall",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.14385,
+        "surcharge_gas": 0.81391,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "VRIJOPNAAM_STROOM": {
+        "name": "Vrijopnaam",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.14085,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "VRIJOPNAAM_COMBO": {
+        "name": "Vrijopnaam",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.13885,
+        "surcharge_gas": 0.80491,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "ZONDERGAS_STROOM": {
+        "name": "ZonderGas",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.13185,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "ZONNEPLAN_STROOM": {
+        "name": "Zonneplan",
+        "type": "DYNAMIC",
+        "offer_type": "ELEC_ONLY",
+        "surcharge_elec": 0.13585,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "ZONNEPLAN_COMBO": {
+        "name": "Zonneplan",
+        "type": "DYNAMIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.13385,
+        "surcharge_gas": 0.79591,
+        "interval": "hour",
+        "return_cost": 0.0,
+        "return_verified": "2026-04-14"
+    },
+    "VAST_CUSTOM": {
+        "name": "Vast contract (eigen tarieven)",
+        "type": "STATIC",
+        "offer_type": "COMBO",
+        "surcharge_elec": 0.0,
+        "surcharge_gas": 0.0,
+        "interval": "hour",
+        "fixed_prices": {
+            "elec_t1": 0.23,
+            "elec_t2": 0.28,
+            "gas": 1.25,
+            "return": 0.09
+        }
+    }
+}
