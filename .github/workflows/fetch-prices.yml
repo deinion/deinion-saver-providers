@@ -72,3 +72,40 @@ jobs:
             git commit -m "chore: update dynamic prices [$(date +%Y-%m-%d %H:%M UTC)]" &&
             git push
           )
+
+      - name: Stuur e-mail bij mislukking
+        if: failure()
+        run: |
+          python - <<'EOF'
+          import smtplib, os
+          from email.mime.text import MIMEText
+          from datetime import datetime, timezone
+
+          now = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
+          run_url = f"https://github.com/deinion/deinion-saver-providers/actions"
+
+          body = f"""Hoi,
+
+          Het ophalen van de day-ahead energieprijzen is mislukt op {now}.
+
+          Controleer de GitHub Actions log voor details:
+          {run_url}
+
+          De Deinion Saver gebruikt voorlopig de prijzen van de vorige dag.
+
+          — Deinion Saver Bot
+          """
+
+          msg = MIMEText(body)
+          msg['Subject'] = f'⚠️ Deinion Saver: prijzen ophalen mislukt ({now})'
+          msg['From'] = 'deinion.saver@gmail.com'
+          msg['To'] = 'deinion.saver@gmail.com'
+
+          with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+              smtp.login('deinion.saver@gmail.com', os.environ['GMAIL_APP_PASSWORD'])
+              smtp.send_message(msg)
+
+          print("✅ E-mail verstuurd naar deinion.saver@gmail.com")
+          EOF
+        env:
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
