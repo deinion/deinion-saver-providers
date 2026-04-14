@@ -26,6 +26,8 @@ on:
 jobs:
   fetch:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -69,7 +71,7 @@ jobs:
           git config user.email "deinion.saver@gmail.com"
           git diff --quiet dynamic_prices.json || (
             git add dynamic_prices.json &&
-            git commit -m "chore: update dynamic prices [$(date +%Y-%m-%d %H:%M UTC)]" &&
+            git commit -m "chore: update dynamic prices [$(date -u +'%Y-%m-%d %H:%M') UTC]" &&
             git push
           )
 
