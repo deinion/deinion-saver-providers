@@ -1,6 +1,6 @@
 {
     "_meta": {
-        "last_updated": "2026-04-29",
+        "last_updated": "2026-04-30",
         "description": "Deinion Saver provider tariffs. return_cost = Vverkoop per kWh (afslag op spotprijs bij teruglevering). Maintained via GitHub Actions.",
         "saldering_end": "2027-01-01"
     },
