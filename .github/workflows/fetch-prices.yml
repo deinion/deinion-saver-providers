@@ -2,24 +2,26 @@ name: Fetch Day-Ahead Energy Prices
 
 on:
   schedule:
-    # Eerste poging: 13:15 UTC (day-ahead prijzen beschikbaar vanaf ~13:00 UTC)
-    - cron: '15 13 * * *'
-    # Retries elke 15 minuten tot 17:00 UTC
-    - cron: '30 13 * * *'
-    - cron: '45 13 * * *'
-    - cron: '0 14 * * *'
-    - cron: '15 14 * * *'
-    - cron: '30 14 * * *'
-    - cron: '45 14 * * *'
-    - cron: '0 15 * * *'
-    - cron: '15 15 * * *'
+    # Data verschijnt bij EnergyZero gemiddeld om 17:30 CEST (15:30 UTC)
+    # Data is volledig rond 20:15 CEST (18:15 UTC)
+    # Eerste poging: 15:30 UTC (17:30 CEST)
     - cron: '30 15 * * *'
+    # Retries elke 15 minuten tot 19:15 UTC (21:15 CEST)
     - cron: '45 15 * * *'
     - cron: '0 16 * * *'
     - cron: '15 16 * * *'
     - cron: '30 16 * * *'
     - cron: '45 16 * * *'
     - cron: '0 17 * * *'
+    - cron: '15 17 * * *'
+    - cron: '30 17 * * *'
+    - cron: '45 17 * * *'
+    - cron: '0 18 * * *'
+    - cron: '15 18 * * *'
+    - cron: '30 18 * * *'
+    - cron: '45 18 * * *'
+    - cron: '0 19 * * *'
+    - cron: '15 19 * * *'
   workflow_dispatch:
     # Handmatig uitvoeren via GitHub UI
 
@@ -44,20 +46,38 @@ jobs:
         id: check
         run: |
           python - <<'EOF'
-          import json, datetime, sys, os
+          import json, sys, os
+          from datetime import datetime, timedelta, timezone
+          from zoneinfo import ZoneInfo
+
           if not os.path.exists('dynamic_prices.json'):
               print("Bestand niet gevonden, ophalen vereist.")
               sys.exit(0)
+
           with open('dynamic_prices.json') as f:
               data = json.load(f)
-          tomorrow = (datetime.datetime.utcnow() + datetime.timedelta(days=1)).strftime('%Y-%m-%d')
-          count = sum(1 for p in data.get('electricity', []) if p['time'].startswith(tomorrow))
+
+          # Gebruik Amsterdam-tijdzone voor correcte "morgen"-bepaling
+          amsterdam = ZoneInfo('Europe/Amsterdam')
+          now_ams = datetime.now(amsterdam)
+          tomorrow_ams_start = (now_ams + timedelta(days=1)).replace(
+              hour=0, minute=0, second=0, microsecond=0)
+          tomorrow_start_utc = tomorrow_ams_start.astimezone(timezone.utc)
+          tomorrow_end_utc   = tomorrow_start_utc + timedelta(hours=24)
+
+          count = sum(
+              1 for p in data.get('electricity', [])
+              if tomorrow_start_utc
+                 <= datetime.fromisoformat(p['time'].replace('Z', '+00:00'))
+                 < tomorrow_end_utc
+          )
+          tomorrow_label = tomorrow_ams_start.strftime('%Y-%m-%d')
           if count >= 20:
-              print(f"Prijzen voor morgen al aanwezig ({count} punten). Stap over.")
+              print(f"Prijzen voor morgen ({tomorrow_label} Amsterdam) al aanwezig ({count} punten). Stap over.")
               with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
                   fh.write("skip=true\n")
           else:
-              print(f"Onvoldoende prijzen voor morgen ({count} punten). Ophalen vereist.")
+              print(f"Onvoldoende prijzen voor morgen ({tomorrow_label} Amsterdam): {count} punten. Ophalen vereist.")
           EOF
 
       - name: Prijzen ophalen van EnergyZero API
