@@ -1,6 +1,6 @@
 """
 fetch_prices.py
-Wordt dagelijks uitgevoerd door GitHub Actions om 13:15 UTC.
+Wordt dagelijks uitgevoerd door GitHub Actions.
 Haalt de day-ahead energieprijzen op van de EnergyZero API en
 voegt ze toe aan dynamic_prices.json in de repo.
 
@@ -12,14 +12,34 @@ import os
 import sys
 import time
 from datetime import datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
 
 PRICES_FILE = 'dynamic_prices.json'
 API_URL = 'https://api.energyzero.nl/v1/energyprices'
 MAX_RETRIES = 5
 RETRY_DELAY = 300  # 5 minuten tussen pogingen
+MIN_TOMORROW_PRICES = 20
 
 def log(msg):
     print(f"[{datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')} UTC] {msg}")
+
+def get_amsterdam_tomorrow_window():
+    """Geeft het UTC-tijdvenster van morgen in Amsterdam-tijd terug."""
+    amsterdam = ZoneInfo('Europe/Amsterdam')
+    now_ams = datetime.now(amsterdam)
+    tomorrow_ams_start = (now_ams + timedelta(days=1)).replace(
+        hour=0, minute=0, second=0, microsecond=0)
+    start_utc = tomorrow_ams_start.astimezone(timezone.utc)
+    end_utc = start_utc + timedelta(hours=24)
+    return start_utc, end_utc, tomorrow_ams_start.strftime('%Y-%m-%d')
+
+def count_tomorrow_prices(prices):
+    """Telt prijspunten die vallen binnen morgen (Amsterdam-tijd)."""
+    start_utc, end_utc, _ = get_amsterdam_tomorrow_window()
+    return sum(
+        1 for p in prices
+        if start_utc <= datetime.fromisoformat(p['time'].replace('Z', '+00:00')) < end_utc
+    )
 
 def fetch_electricity(start, end):
     params = {
@@ -65,12 +85,16 @@ def merge(existing, new_items):
     return existing, added
 
 def main():
-    now_utc = datetime.now(timezone.utc)
-    # Haal prijzen op voor vandaag én morgen
-    start = now_utc.strftime('%Y-%m-%dT00:00:00.000Z')
-    end = (now_utc + timedelta(days=1)).strftime('%Y-%m-%dT23:59:59.999Z')
+    # Gebruik Amsterdam-tijdzone voor datumberekeningen
+    amsterdam = ZoneInfo('Europe/Amsterdam')
+    now_ams = datetime.now(amsterdam)
 
-    log(f"Start prijzen ophalen voor {start[:10]} t/m {end[:10]}")
+    # Vraag data op voor vandaag én morgen (Amsterdam-tijd)
+    # EnergyZero interpreteert de datums als Amsterdam lokale tijd
+    start = now_ams.strftime('%Y-%m-%dT00:00:00.000Z')
+    end   = (now_ams + timedelta(days=1)).strftime('%Y-%m-%dT23:59:59.999Z')
+
+    log(f"Start prijzen ophalen voor {start[:10]} t/m {end[:10]} (Amsterdam)")
 
     # Laad bestaand bestand
     if os.path.exists(PRICES_FILE):
@@ -104,13 +128,16 @@ def main():
     # Merge
     data['electricity'], elec_added = merge(data.get('electricity', []), elec_new)
     data['gas'], gas_added = merge(data.get('gas', []), gas_new)
-    data['updated_at'] = now_utc.strftime('%Y-%m-%d %H:%M:%S')
+    data['updated_at'] = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
 
     with open(PRICES_FILE, 'w') as f:
         json.dump(data, f, indent=4)
 
+    tomorrow_count = count_tomorrow_prices(data['electricity'])
+    _, _, tomorrow_label = get_amsterdam_tomorrow_window()
     log(f"✅ Opgeslagen: +{elec_added} elektriciteit, +{gas_added} gas "
         f"(totaal: {len(data['electricity'])} / {len(data['gas'])})")
+    log(f"   Morgen ({tomorrow_label} Amsterdam): {tomorrow_count}/{MIN_TOMORROW_PRICES} prijspunten aanwezig")
 
 if __name__ == '__main__':
     main()
