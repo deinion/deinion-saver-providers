@@ -18,7 +18,7 @@ PRICES_FILE = 'dynamic_prices.json'
 API_URL = 'https://api.energyzero.nl/v1/energyprices'
 MAX_RETRIES = 5
 RETRY_DELAY = 300  # 5 minuten tussen pogingen
-MIN_TOMORROW_PRICES = 20
+MIN_TOMORROW_PRICES = 24
 
 def log(msg):
     print(f"[{datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')} UTC] {msg}")
