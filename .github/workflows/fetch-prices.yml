@@ -72,12 +72,12 @@ jobs:
                  < tomorrow_end_utc
           )
           tomorrow_label = tomorrow_ams_start.strftime('%Y-%m-%d')
-          if count >= 20:
-              print(f"Prijzen voor morgen ({tomorrow_label} Amsterdam) al aanwezig ({count} punten). Stap over.")
+          if count >= 24:
+              print(f"Prijzen voor morgen ({tomorrow_label} Amsterdam) compleet ({count}/24 uur). Stap over.")
               with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
                   fh.write("skip=true\n")
           else:
-              print(f"Onvoldoende prijzen voor morgen ({tomorrow_label} Amsterdam): {count} punten. Ophalen vereist.")
+              print(f"Prijzen voor morgen ({tomorrow_label} Amsterdam) onvolledig: {count}/24 uur. Ophalen vereist.")
           EOF
 
       - name: Prijzen ophalen van EnergyZero API
