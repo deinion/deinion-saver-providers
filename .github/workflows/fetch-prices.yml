@@ -25,6 +25,10 @@ on:
   workflow_dispatch:
     # Handmatig uitvoeren via GitHub UI
 
+concurrency:
+  group: fetch-prices
+  cancel-in-progress: false
+
 jobs:
   fetch:
     runs-on: ubuntu-latest
@@ -92,6 +96,8 @@ jobs:
           git diff --quiet dynamic_prices.json || (
             git add dynamic_prices.json &&
             git commit -m "chore: update dynamic prices [$(date -u +'%Y-%m-%d %H:%M') UTC]" &&
+            git pull --rebase origin main &&
             git push
           )
+
 
