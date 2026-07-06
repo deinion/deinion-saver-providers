@@ -66,8 +66,12 @@ jobs:
           now_ams = datetime.now(amsterdam)
           tomorrow_ams_start = (now_ams + timedelta(days=1)).replace(
               hour=0, minute=0, second=0, microsecond=0)
+          day_after_ams_start = (now_ams + timedelta(days=2)).replace(
+              hour=0, minute=0, second=0, microsecond=0)
           tomorrow_start_utc = tomorrow_ams_start.astimezone(timezone.utc)
-          tomorrow_end_utc   = tomorrow_start_utc + timedelta(hours=24)
+          tomorrow_end_utc   = day_after_ams_start.astimezone(timezone.utc)
+          # Verwacht: 23 uur (lenteovergang), 24 uur (normaal), 25 uur (herfstovergang)
+          expected_hours = int((tomorrow_end_utc - tomorrow_start_utc).total_seconds() // 3600)
 
           count = sum(
               1 for p in data.get('electricity', [])
@@ -76,12 +80,12 @@ jobs:
                  < tomorrow_end_utc
           )
           tomorrow_label = tomorrow_ams_start.strftime('%Y-%m-%d')
-          if count >= 24:
-              print(f"Prijzen voor morgen ({tomorrow_label} Amsterdam) compleet ({count}/24 uur). Stap over.")
+          if count >= expected_hours:
+              print(f"Prijzen voor morgen ({tomorrow_label} Amsterdam) compleet ({count}/{expected_hours} uur). Stap over.")
               with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
                   fh.write("skip=true\n")
           else:
-              print(f"Prijzen voor morgen ({tomorrow_label} Amsterdam) onvolledig: {count}/24 uur. Ophalen vereist.")
+              print(f"Prijzen voor morgen ({tomorrow_label} Amsterdam) onvolledig: {count}/{expected_hours} uur. Ophalen vereist.")
           EOF
 
       - name: Prijzen ophalen van EnergyZero API
