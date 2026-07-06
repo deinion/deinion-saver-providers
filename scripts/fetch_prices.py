@@ -24,22 +24,29 @@ def log(msg):
     print(f"[{datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')} UTC] {msg}")
 
 def get_amsterdam_tomorrow_window():
-    """Geeft het UTC-tijdvenster van morgen in Amsterdam-tijd terug."""
+    """Geeft het UTC-tijdvenster van morgen in Amsterdam-tijd terug + verwacht aantal uren.
+
+    Normale dag: 24 uren. Lenteovergang: 23 uren. Herfstovergang: 25 uren.
+    """
     amsterdam = ZoneInfo('Europe/Amsterdam')
     now_ams = datetime.now(amsterdam)
     tomorrow_ams_start = (now_ams + timedelta(days=1)).replace(
         hour=0, minute=0, second=0, microsecond=0)
-    start_utc = tomorrow_ams_start.astimezone(timezone.utc)
-    end_utc = start_utc + timedelta(hours=24)
-    return start_utc, end_utc, tomorrow_ams_start.strftime('%Y-%m-%d')
+    day_after_ams_start = (now_ams + timedelta(days=2)).replace(
+        hour=0, minute=0, second=0, microsecond=0)
+    start_utc    = tomorrow_ams_start.astimezone(timezone.utc)
+    end_utc      = day_after_ams_start.astimezone(timezone.utc)
+    expected     = int((end_utc - start_utc).total_seconds() // 3600)
+    return start_utc, end_utc, tomorrow_ams_start.strftime('%Y-%m-%d'), expected
 
 def count_tomorrow_prices(prices):
     """Telt prijspunten die vallen binnen morgen (Amsterdam-tijd)."""
-    start_utc, end_utc, _ = get_amsterdam_tomorrow_window()
-    return sum(
+    start_utc, end_utc, _, expected = get_amsterdam_tomorrow_window()
+    count = sum(
         1 for p in prices
         if start_utc <= datetime.fromisoformat(p['time'].replace('Z', '+00:00')) < end_utc
     )
+    return count, expected
 
 def fetch_electricity(start, end):
     params = {
@@ -133,11 +140,11 @@ def main():
     with open(PRICES_FILE, 'w') as f:
         json.dump(data, f, indent=4)
 
-    tomorrow_count = count_tomorrow_prices(data['electricity'])
-    _, _, tomorrow_label = get_amsterdam_tomorrow_window()
+    tomorrow_count, expected = count_tomorrow_prices(data['electricity'])
+    _, _, tomorrow_label, _ = get_amsterdam_tomorrow_window()
     log(f"✅ Opgeslagen: +{elec_added} elektriciteit, +{gas_added} gas "
         f"(totaal: {len(data['electricity'])} / {len(data['gas'])})")
-    log(f"   Morgen ({tomorrow_label} Amsterdam): {tomorrow_count}/{MIN_TOMORROW_PRICES} prijspunten aanwezig")
+    log(f"   Morgen ({tomorrow_label} Amsterdam): {tomorrow_count}/{expected} prijspunten aanwezig")
 
 if __name__ == '__main__':
     main()
