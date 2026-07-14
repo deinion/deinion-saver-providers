@@ -750,16 +750,17 @@
         "offer_type": "COMBO",
         "contract_term_months": 12,
         "fixed_prices": {
-            "elec_t1": 0.24698,
+            "elec_t1": 0.24456,
             "elec_t2": 0.24698,
             "gas": 1.37448,
-            "return": 0.09
+            "return": 0.15
         },
         "standing_charge_elec": 9.98,
         "standing_charge_gas": 7.49,
-        "exit_fee": 0.0,
+        "exit_fee": null,
+        "exit_fee_note": "Variabel, geen vast bedrag: (afgesproken leveringstarief - referentietarief) x verwacht resterend verbruik.",
         "rate_verified": "2026-07-15",
-        "rate_source": "Publiek opgehaald (vergelijkingssites, niet rechtstreeks Energiedirect/Daisycon-materiaal) - controleren voor livegang",
+        "rate_source": "Publieke vergelijkingssites (keuze.nl + overstappen.nl komen overeen), incl. energiebelasting en BTW. Niet uit Daisycon/Energiedirect-materiaal zelf - geen productfeed beschikbaar. Vastrecht via energieaanbiedingen.nu. Controleren voor livegang.",
         "affiliate_url": "https://lt45.net/c/?si=924&li=1782260&wi=422944&ws=ENERGIEDIRECT_FIXED_1Y",
         "affiliate_network": "daisycon"
     },
@@ -769,16 +770,17 @@
         "offer_type": "COMBO",
         "contract_term_months": 24,
         "fixed_prices": {
-            "elec_t1": 0.24698,
-            "elec_t2": 0.24698,
-            "gas": 1.37448,
-            "return": 0.09
+            "elec_t1": 0.23696,
+            "elec_t2": 0.23938,
+            "gas": 1.3682,
+            "return": 0.15
         },
         "standing_charge_elec": 9.98,
         "standing_charge_gas": 7.49,
-        "exit_fee": 0.0,
+        "exit_fee": null,
+        "exit_fee_note": "Variabel, geen vast bedrag: (afgesproken leveringstarief - referentietarief) x verwacht resterend verbruik.",
         "rate_verified": "2026-07-15",
-        "rate_source": "Publiek opgehaald (vergelijkingssites, niet rechtstreeks Energiedirect/Daisycon-materiaal) - controleren voor livegang",
+        "rate_source": "Publieke vergelijkingssites (keuze.nl + overstappen.nl komen overeen), incl. energiebelasting en BTW. Niet uit Daisycon/Energiedirect-materiaal zelf - geen productfeed beschikbaar. Vastrecht 2-jaar niet los bevestigd (1- en 3-jaar zijn identiek). Controleren voor livegang.",
         "affiliate_url": "https://lt45.net/c/?si=924&li=1782260&wi=422944&ws=ENERGIEDIRECT_FIXED_2Y",
         "affiliate_network": "daisycon"
     },
