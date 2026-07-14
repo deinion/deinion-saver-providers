@@ -1,6 +1,6 @@
 {
     "_meta": {
-        "last_updated": "2026-07-14",
+        "last_updated": "2026-07-15",
         "description": "Deinion Saver provider tariffs. return_cost = Vverkoop per kWh (afslag op spotprijs bij teruglevering). Maintained via GitHub Actions.",
         "saldering_end": "2027-01-01"
     },
@@ -743,6 +743,44 @@
         "interval": "hour",
         "return_cost": 0.0,
         "return_verified": "2026-04-14"
+    },
+    "ENERGIEDIRECT_FIXED_1Y": {
+        "name": "Energiedirect",
+        "type": "FIXED",
+        "offer_type": "COMBO",
+        "contract_term_months": 12,
+        "fixed_prices": {
+            "elec_t1": 0.24698,
+            "elec_t2": 0.24698,
+            "gas": 1.37448,
+            "return": 0.09
+        },
+        "standing_charge_elec": 9.98,
+        "standing_charge_gas": 7.49,
+        "exit_fee": 0.0,
+        "rate_verified": "2026-07-15",
+        "rate_source": "Publiek opgehaald (vergelijkingssites, niet rechtstreeks Energiedirect/Daisycon-materiaal) - controleren voor livegang",
+        "affiliate_url": "https://lt45.net/c/?si=924&li=1782260&wi=422944&ws=ENERGIEDIRECT_FIXED_1Y",
+        "affiliate_network": "daisycon"
+    },
+    "ENERGIEDIRECT_FIXED_2Y": {
+        "name": "Energiedirect",
+        "type": "FIXED",
+        "offer_type": "COMBO",
+        "contract_term_months": 24,
+        "fixed_prices": {
+            "elec_t1": 0.24698,
+            "elec_t2": 0.24698,
+            "gas": 1.37448,
+            "return": 0.09
+        },
+        "standing_charge_elec": 9.98,
+        "standing_charge_gas": 7.49,
+        "exit_fee": 0.0,
+        "rate_verified": "2026-07-15",
+        "rate_source": "Publiek opgehaald (vergelijkingssites, niet rechtstreeks Energiedirect/Daisycon-materiaal) - controleren voor livegang",
+        "affiliate_url": "https://lt45.net/c/?si=924&li=1782260&wi=422944&ws=ENERGIEDIRECT_FIXED_2Y",
+        "affiliate_network": "daisycon"
     },
     "VAST_CUSTOM": {
         "name": "Vast contract (eigen tarieven)",
