@@ -760,7 +760,8 @@
         "exit_fee": null,
         "exit_fee_note": "Variabel, geen vast bedrag: (afgesproken leveringstarief - referentietarief) x verwacht resterend verbruik.",
         "rate_verified": "2026-07-15",
-        "rate_source": "Publieke vergelijkingssites (keuze.nl + overstappen.nl komen overeen), incl. energiebelasting en BTW. Niet uit Daisycon/Energiedirect-materiaal zelf - geen productfeed beschikbaar. Vastrecht via energieaanbiedingen.nu. Controleren voor livegang.",
+        "rate_source": "Publieke tarievenoverzichten, incl. energiebelasting en BTW. Indicatief, geen officiele opgave van de leverancier.",
+        "rate_indicative": true,
         "affiliate_url": "https://lt45.net/c/?si=924&li=1782260&wi=422944&ws=ENERGIEDIRECT_FIXED_1Y",
         "affiliate_network": "daisycon"
     },
@@ -780,7 +781,8 @@
         "exit_fee": null,
         "exit_fee_note": "Variabel, geen vast bedrag: (afgesproken leveringstarief - referentietarief) x verwacht resterend verbruik.",
         "rate_verified": "2026-07-15",
-        "rate_source": "Publieke vergelijkingssites (keuze.nl + overstappen.nl komen overeen), incl. energiebelasting en BTW. Niet uit Daisycon/Energiedirect-materiaal zelf - geen productfeed beschikbaar. Vastrecht 2-jaar niet los bevestigd (1- en 3-jaar zijn identiek). Controleren voor livegang.",
+        "rate_source": "Publieke tarievenoverzichten, incl. energiebelasting en BTW. Indicatief, geen officiele opgave van de leverancier.",
+        "rate_indicative": true,
         "affiliate_url": "https://lt45.net/c/?si=924&li=1782260&wi=422944&ws=ENERGIEDIRECT_FIXED_2Y",
         "affiliate_network": "daisycon"
     },
