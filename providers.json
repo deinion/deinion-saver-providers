@@ -786,6 +786,27 @@
         "affiliate_url": "https://lt45.net/c/?si=924&li=1782260&wi=422944&ws=ENERGIEDIRECT_FIXED_2Y",
         "affiliate_network": "daisycon"
     },
+    "ENERGIEDIRECT_FIXED_3Y": {
+        "name": "Energiedirect",
+        "type": "FIXED",
+        "offer_type": "COMBO",
+        "contract_term_months": 36,
+        "fixed_prices": {
+            "elec_t1": 0.23339,
+            "elec_t2": 0.23581,
+            "gas": 1.36452,
+            "return": 0.15
+        },
+        "standing_charge_elec": 9.98,
+        "standing_charge_gas": 7.49,
+        "exit_fee": null,
+        "exit_fee_note": "Variabel, geen vast bedrag: (afgesproken leveringstarief - referentietarief) x verwacht resterend verbruik.",
+        "rate_verified": "2026-07-15",
+        "rate_source": "Publieke tarievenoverzichten, incl. energiebelasting en BTW. Indicatief, geen officiele opgave van de leverancier.",
+        "rate_indicative": true,
+        "affiliate_url": "https://lt45.net/c/?si=924&li=1782260&wi=422944&ws=ENERGIEDIRECT_FIXED_3Y",
+        "affiliate_network": "daisycon"
+    },
     "VAST_CUSTOM": {
         "name": "Vast contract (eigen tarieven)",
         "type": "STATIC",
